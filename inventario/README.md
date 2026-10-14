@@ -1,4 +1,4 @@
-# MCX Nexus Inventario
+# Nexus Inventario
 
 Aplicacao PHP 8+ e MySQL para gestao de ativos, estoque, compras, movimentacoes, requisicoes e historico.
 
@@ -15,11 +15,10 @@ Aplicacao PHP 8+ e MySQL para gestao de ativos, estoque, compras, movimentacoes,
 - Gestor com o mesmo acesso operacional do Administrador, exceto Inventario e fluxo de aprovacao, limitado a Limpeza e Escritorio.
 - Inventario com leituras repetidas permitidas.
 - Login unificado usando o campo `perfil` da tabela `usuarios`.
-- Identidade visual alinhada ao Consult/Grupo MCX, com topo horizontal fixo, breadcrumb, tabelas turquesa, botoes por cor de acao e modais padronizados.
 
 ## Banco
 
-Importe `database.sql` no phpMyAdmin. O script recria a base `mcx_inventario` e inclui relacionamentos, chaves estrangeiras e indices.
+Importe `database.sql` no phpMyAdmin. O script recria a base `nexus_inventario` e inclui relacionamentos, chaves estrangeiras e indices.
 
 Tabelas principais:
 
@@ -46,8 +45,8 @@ URL local padrao:
 
 Credenciais:
 
-- Administrador: `admin@mcx.local` / `password`
-- Usuario: `joao.silva@mcx.local` / `password`
+- Administrador: `admin@nexus.local` / `password`
+- Usuario: `jose.sousa@nexus.local` / `password`
 
 ## Configuracao
 
