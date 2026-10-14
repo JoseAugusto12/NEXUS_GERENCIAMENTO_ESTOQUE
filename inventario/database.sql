@@ -1,12 +1,12 @@
--- ============================================================
--- NEXUS - MCX Inventario  |  Schema completo (fresh install)
--- ============================================================
+-- ====================
+-- NEXUS - Inventario  
+-- ====================
 
-CREATE DATABASE IF NOT EXISTS mcx_inventario
+CREATE DATABASE IF NOT EXISTS nexus_inventario
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
-USE mcx_inventario;
+USE nexus_inventario;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -365,13 +365,13 @@ CREATE TABLE inventory_scans (
 
 -- Usuarios: senha padrao = "password"
 INSERT INTO usuarios (nome, email, senha, perfil, cpf, matricula, departamento, funcao) VALUES
-('Administrador', 'admin@mcx.local',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'administrador', '000.000.000-00', '0001', 'TI',        'Administrador'),
-('Joao Silva',    'joao.silva@mcx.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'usuario',        '111.111.111-11', '1001', 'Operacoes', 'Analista'),
-('Gestor',       'gestor@mcx.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gestor',         '222.222.222-22', '2001', 'Facilities','Gestor'),
-('Diretoria',    'diretor@mcx.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'diretoria',      '333.333.333-33', '3001', 'Diretoria', 'Diretoria'),
-('Coordenacao TI','coordenacao.ti@mcx.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'coordenacao_ti','444.444.444-44', '4001', 'TI', 'Coordenador'),
-('Financeiro',   'financeiro@mcx.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'financeiro',     '555.555.555-55', '5001', 'Financeiro', 'Analista Financeiro'),
-('RH',           'rh@mcx.local',       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'rh',             '666.666.666-66', '6001', 'RH', 'Analista RH');
+('Administrador', 'admin@nexus.local',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'administrador', '000.000.000-00', '0001', 'TI',        'Administrador'),
+('Joao Silva',    'jose.sousa@nexus.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'usuario',        '111.111.111-11', '1001', 'Operacoes', 'Analista'),
+('Gestor',       'gestor@nexus.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gestor',         '222.222.222-22', '2001', 'Facilities','Gestor'),
+('Diretoria',    'diretor@nexus.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'diretoria',      '333.333.333-33', '3001', 'Diretoria', 'Diretoria'),
+('Coordenacao TI','coordenacao.ti@nexus.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'coordenacao_ti','444.444.444-44', '4001', 'TI', 'Coordenador'),
+('Financeiro',   'financeiro@nexus.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'financeiro',     '555.555.555-55', '5001', 'Financeiro', 'Analista Financeiro'),
+('RH',           'rh@nexus.local',       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'rh',             '666.666.666-66', '6001', 'RH', 'Analista RH');
 
 -- Categorias
 INSERT INTO categorias (nome, tipo, descricao) VALUES
@@ -390,7 +390,7 @@ INSERT INTO ativos (
     estado, localizacao, observacoes
 ) VALUES
 (
-    'MCX-000001', 1, 'Notebook Dell Latitude', 'Dell', '5440', 'Dell Brasil', 'NF1001',
+    'COD-000001', 1, 'Notebook Dell Latitude', 'Dell', '5440', 'Dell Brasil', 'NF1001',
     6200.00, '2025-01-10', '2028-01-10', 5, 1,
     'Otimo', 'Estoque TI', 'Notebook corporativo para entrega a colaboradores.'
 );
@@ -407,7 +407,7 @@ INSERT INTO requisicoes (
     codigo_requisicao, usuario_id, matricula, cpf, nome, departamento, funcao,
     descricao, status, aprovado_por, data_solicitacao, hora_solicitacao
 ) VALUES (
-    'REQ-000001', 2, '1001', '111.111.111-11', 'Joao Silva', 'Operacoes', 'Analista',
+    'REQ-000001', 2, '1001', '111.111.111-11', 'Jose Sousa', 'Operacoes', 'Analista',
     'Solicitacao de notebook para colaborador.',
     'Em análise', NULL, CURDATE(), CURTIME()
 );
