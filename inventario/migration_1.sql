@@ -1,5 +1,5 @@
 -- =============================================================
--- MCX NEXUS — Migration Script (merged, non-destructive, safe to re-run)
+-- NEXUS — Migration Script (merged, non-destructive, safe to re-run)
 -- Apply to existing databases running the previous schema version.
 -- Gerado a partir da junção de múltiplos migration.sql
 -- =============================================================
@@ -43,8 +43,8 @@ ALTER TABLE usuarios
 -- 3. Seed users for the two new roles (only if absent).
 -- ------------------------------------------------------------
 INSERT IGNORE INTO usuarios (nome, email, senha, perfil, cpf, matricula, departamento, funcao) VALUES
-('Gestor Limpeza',   'gestor@mcx.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gestor',    '222.222.222-22', '2001', 'Limpeza',  'Gestor'),
-('Diretoria Board',  'diretoria@mcx.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'diretoria', '333.333.333-33', '3001', 'Diretoria','Diretor');
+('Gestor Limpeza',   'gestor@nexus.local',   '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gestor',    '222.222.222-22', '2001', 'Limpeza',  'Gestor'),
+('Diretoria Board',  'diretoria@nexus.local','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'diretoria', '333.333.333-33', '3001', 'Diretoria','Diretor');
 
 -- ------------------------------------------------------------
 -- 4. Seed Limpeza and Escritorio categories if missing.
@@ -68,7 +68,7 @@ INSERT IGNORE INTO categorias (nome, descricao, tipo) VALUES
 -- NEXUS: compatibilidade para bases existentes.
 -- Instalacoes novas devem importar somente database.sql.
 
-UPDATE usuarios SET nome = 'Gestor', funcao = 'Gestor' WHERE email = 'gestor@mcx.local';
+UPDATE usuarios SET nome = 'Gestor', funcao = 'Gestor' WHERE email = 'gestor@nexus.local';
 
 -- O fluxo atual e Administrador -> Coordenacao TI -> Financeiro.
 -- Recrie as tabelas de fluxo em bases legadas para remover etapas e campos obsoletos.
